@@ -2,39 +2,48 @@ package com.cc.java;
 
 public class Cat {
     
-    public String name;
-    public String furColor;
-    public int age;
+    private String name;
+    private String furColor;
+    private int age;
 
-
-    // this -- Instanzvariable
-    public String tellYourAddress() {
-       return "Blick von innen: " + this;
+    // Custom-Konstruktor    
+    public Cat(String name, String furColor, int age) {
+        this.name = name;
+        this.furColor = furColor;
+        this.age = age;
     }
 
-    public String tellYourName() {
-        return this.name;  
+    public String getName() {
+        if (checkPermission()) {
+            return name;
+        } else {
+            return "Sorry, no permission idiot!";
+        }
     }
 
-    public String tellYourFurColor() {
-        return this.furColor;
-    }
-
-    public int tellYourAge() {
-        return this.age;
-    }
-
-
-    public void changeName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void changeFurColor(String furColor) {
+    public String getFurColor() {
+        return furColor;
+    }
+
+    public void setFurColor(String furColor) {
         this.furColor = furColor;
     }
 
-    public void changeAge(int age) {
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
         this.age = age;
+    }
+
+    // private, weil call aus der EIGENEN Klasse/Objekt
+    private boolean checkPermission() {
+        return true;
     }
 
 
